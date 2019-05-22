@@ -7,7 +7,7 @@
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
-        "method" : "POST",
+        "method" : "HEAD",
         "ports" : [80, 8443, 8080, 8888],
         "suffixes" : [
             "/web.zip",
@@ -16,20 +16,7 @@
             "/old.zip",
             "/bak.zip",
             "/code.zip"
-        ],
-        "user-agent" : "biu-agent",
-        "headers" : {
-            "aaa" : "bbb"
-        },
-        "auth" : {
-        },
-        "queryset": [
-            {"key" : "xxx", "value" : "yyy"}
-        ],
-        "bodys" : [
-            {"key" : "mmm", "value" : "nnn"}
-        ],
-        "json" : null
+        ]
     },
     "matcher" : {
         "status" : [200],

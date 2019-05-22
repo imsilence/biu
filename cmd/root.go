@@ -35,8 +35,9 @@ var rootCmd = &cobra.Command{
 			logrus.SetLevel(logrus.DebugLevel)
 		}
 
-		file, err := os.Create(filepath.Join(config.CWD, "logs", "biu.log"))
-		// file, err := os.Create(filepath.Join(config.HOME, "logs", "biu.log"))
+		os.MkdirAll(filepath.Join(config.HOME, "logs"), os.ModePerm)
+
+		file, err := os.Create(filepath.Join(config.HOME, "logs", "biu.log"))
 		if err != nil {
 			return err
 		}
@@ -70,7 +71,7 @@ var rootCmd = &cobra.Command{
 
 			fmt.Println(strings.Repeat("=", len(fmt.Sprintf(tpl, "", "", ""))))
 		} else {
-			reportPath := filepath.Join(config.CWD, "reports", fmt.Sprintf("%s.csv", time.Now().Format("2006-01-02_15-04-05")))
+			reportPath := filepath.Join(config.HOME, "reports", fmt.Sprintf("%s.csv", time.Now().Format("2006-01-02_15-04-05")))
 			reportFile, err := os.Create(reportPath)
 			if err != nil {
 				return err
@@ -132,10 +133,11 @@ func Execute() {
 
 func init() {
 	rootCmd.PersistentFlags().IntVarP(&worker, "worker", "w", 10000, "worker")
+	rootCmd.PersistentFlags().BoolVarP(&verbose, "verbose", "v", false, "verbose run log")
+	rootCmd.PersistentFlags().DurationVarP(&timeout, "timeout", "T", 3*time.Second, "http request timeout")
 	rootCmd.Flags().StringVarP(&host, "host", "H", "", "target host addr(127.0.0.1)")
 	rootCmd.Flags().StringVarP(&cidr, "cidr", "c", "", "target cidr addr(192.168.0.0/24)")
 	rootCmd.Flags().StringVarP(&pluginName, "plugin", "p", "*", "plugin")
 	rootCmd.Flags().BoolVarP(&query, "query", "q", false, "query plugin")
-	rootCmd.Flags().BoolVarP(&verbose, "verbose", "v", false, "verbose run log")
-	rootCmd.Flags().DurationVarP(&timeout, "timeout", "T", 3*time.Second, "http request timeout")
+
 }
