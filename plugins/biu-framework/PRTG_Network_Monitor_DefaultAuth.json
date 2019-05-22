@@ -1,0 +1,21 @@
+{
+    "name": "PRTG_Network_Monitor_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80
+    ],
+    "dork": "title=PRTG Network Monitor",
+    "suffix": [
+        "/public/checklogin.htm"
+    ],
+    "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+        "username": "prtgadmin",
+        "password": "prtgadmin"
+    },
+    "hits": [
+        "/edituser.htm?id=100"
+    ]
+}

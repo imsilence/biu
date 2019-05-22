@@ -1,0 +1,14 @@
+{
+    "name": "Git_Config_Disclosure",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "url=http",
+    "suffix": [
+        "/.git/config"
+    ],
+    "hits": [
+        "repositoryformatversion"
+    ]
+}

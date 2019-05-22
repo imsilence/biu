@@ -1,0 +1,15 @@
+{
+    "name": "Jenkins_signup_Enabled",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "apps=Jenkins",
+    "suffix": [
+        "/signup"
+    ],
+    "hits": [
+        "/securityRealm/createAccount"
+    ]
+}

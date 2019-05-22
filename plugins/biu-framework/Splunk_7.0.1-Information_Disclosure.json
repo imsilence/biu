@@ -1,0 +1,18 @@
+{
+    "name": "Splunk<7.0.1-Information_Disclosure",
+    "method": "GET",
+    "port": [
+        80,
+        8000
+    ],
+    "dork": "apps=Splunk",
+    "suffix": [
+        "/en-US/splunkd/__raw/services/server/info/server-info?output_mode=json"
+    ],
+    "hits": [
+        "licenseSignature"
+    ],
+    "references": [
+        "https://www.exploit-db.com/exploits/44865/"
+    ]
+}

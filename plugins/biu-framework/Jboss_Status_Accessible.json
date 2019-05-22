@@ -1,0 +1,14 @@
+{
+    "name": "Jboss_Status_Accessible",
+    "method": "GET",
+    "port": [
+        8080
+    ],
+    "dork": "apps=JBoss Application Server",
+    "suffix": [
+        "/status?full=true"
+    ],
+    "hits": [
+        "Free memory"
+    ]
+}

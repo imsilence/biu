@@ -1,0 +1,17 @@
+{
+    "name": "Etcd_REST_API_unauth",
+    "method": "GET",
+    "port": [
+        2379
+    ],
+    "dork": "url=:2379",
+    "suffix": [
+        "/v2/keys/?recursive=true"
+    ],
+    "hits": [
+        "dir\":true"
+    ],
+    "references": [
+        "https://elweb.co/the-security-footgun-in-etcd/"
+    ]
+}

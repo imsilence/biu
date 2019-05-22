@@ -1,0 +1,15 @@
+{
+    "name": "Laravel_DebugBar",
+    "author": "0xbug",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=Laravel",
+    "suffix": [
+        "/"
+    ],
+    "hits": [
+        "PhpDebugBar.DebugBar"
+    ]
+}

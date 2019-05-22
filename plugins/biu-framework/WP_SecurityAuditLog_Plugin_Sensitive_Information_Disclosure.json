@@ -1,0 +1,17 @@
+{
+    "name": "WP_SecurityAuditLog_Plugin_Sensitive_Information_Disclosure",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=WordPress",
+    "suffix": [
+        "/wp-content/uploads/wp-security-audit-log/"
+    ],
+    "hits": [
+        "Index of /wp-content/uploads/wp-security-audit-log"
+    ],
+    "references": [
+        "https://www.exploit-db.com/exploits/44371/"
+    ]
+}

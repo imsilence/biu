@@ -1,0 +1,20 @@
+{
+    "name": "Kong_Admin_API_unauth",
+    "method": "GET",
+    "port": [
+        80,
+        8001,
+        8080
+    ],
+    "dork": "body=cassandra_username",
+    "suffix": [
+        "/apis/"
+    ],
+    "hits": [
+        "{\"total\":0,\"data\":[]}",
+        "http_if_terminated"
+    ],
+    "references": [
+        "https://docs.konghq.com/0.13.x/admin-api/"
+    ]
+}

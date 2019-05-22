@@ -1,0 +1,20 @@
+{
+    "name": "Captcha_IN_Cookie",
+    "author": "0xbug",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "suffix": [
+        "/"
+    ],
+    "hits": [
+        "captcha",
+        "checkcode",
+        "ValidateCode",
+        "yzm",
+        "yanzhengma"
+    ],
+    "hit_where": "headers.Set-Cookie"
+}

@@ -1,0 +1,50 @@
+{
+    "id" : "00001",
+    "name" : "CompressedBackupFile_undelete",
+    "desc" : "CompressedBackupFile_undelete",
+    "author" : "kk",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "POST",
+        "ports" : [80, 8443, 8080, 8888],
+        "suffixes" : [
+            "/web.zip",
+            "/www.zip",
+            "/backup.zip",
+            "/old.zip",
+            "/bak.zip",
+            "/code.zip"
+        ],
+        "user-agent" : "biu-agent",
+        "headers" : {
+            "aaa" : "bbb"
+        },
+        "auth" : {
+        },
+        "queryset": [
+            {"key" : "xxx", "value" : "yyy"}
+        ],
+        "bodys" : [
+            {"key" : "mmm", "value" : "nnn"}
+        ],
+        "json" : null
+    },
+    "matcher" : {
+        "status" : [200],
+        "texts" : [
+            {
+                "type":"regexp",
+                "value" : "(?i:there was an unexpected error)"
+            }
+        ],
+        "headers" : [
+            {
+                "key" : "Cache-Control",
+                "type" : "contains",
+                "value" : "[a-z]{1,4}-age=0"
+            }
+        ]
+    }
+}

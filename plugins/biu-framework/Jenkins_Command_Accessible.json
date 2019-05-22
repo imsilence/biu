@@ -1,0 +1,16 @@
+{
+    "name": "Jenkins_Command_Accessible",
+    "method": "GET",
+    "port": [
+        80,
+        443,
+        8080
+    ],
+    "dork": "apps=Jenkins",
+    "suffix": [
+        "/script"
+    ],
+    "hits": [
+        "println(Jenkins.instance.pluginManager.plugins)"
+    ]
+}

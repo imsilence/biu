@@ -1,0 +1,22 @@
+{
+    "name": "iDRAC_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80,
+        443
+    ],
+    "dork": "body=pam_int_ldap_enable_mode",
+    "suffix": [
+        "/data/login"
+    ],
+    "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": {
+        "user": "root",
+        "password": "calvin"
+    },
+    "hits": [
+        "<authResult>1</authResult>"
+    ]
+}

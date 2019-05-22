@@ -1,0 +1,15 @@
+{
+    "name": "Gitlab_Explore_unauth",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=GitLab",
+    "suffix": [
+        "/explore/projects?group=&scope=&sort=updated_desc&tag=&visibility_level="
+    ],
+    "hits": [
+        "dash-project-avatar",
+        "The project can be accessed without any authentication"
+    ]
+}

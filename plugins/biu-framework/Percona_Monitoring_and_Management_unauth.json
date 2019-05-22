@@ -1,0 +1,18 @@
+{
+    "name": "Percona_Monitoring_and_Management_unauth",
+    "author": "0xbug",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "title=Percona Monitoring and Management",
+    "suffix": [
+        "/qan/"
+    ],
+    "hits": [
+        "Percona Query Analytics"
+    ],
+    "references": [
+        "https://www.percona.com/doc/percona-monitoring-and-management/security.html"
+    ]
+}

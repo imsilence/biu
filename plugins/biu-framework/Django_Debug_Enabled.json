@@ -1,0 +1,14 @@
+{
+    "name": "Django_Debug_Enabled",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=Django",
+    "suffix": [
+        "/_biu_/"
+    ],
+    "hits": [
+        "DEBUG = True"
+    ]
+}

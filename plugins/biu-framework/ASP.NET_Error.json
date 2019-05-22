@@ -1,0 +1,15 @@
+{
+    "name": "ASP.NET_Error",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=IIS",
+    "suffix": [
+        "/biubiubiu"
+    ],
+    "hits": [
+        "customErrors mode=\"Off",
+        "Web.Config"
+    ]
+}

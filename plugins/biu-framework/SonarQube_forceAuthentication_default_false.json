@@ -1,0 +1,15 @@
+{
+    "name": "SonarQube_forceAuthentication_default_false",
+    "method": "GET",
+    "port": [
+        80,
+        9000
+    ],
+    "dork": "title=SonarQube",
+    "suffix": [
+        "/coding_rules"
+    ],
+    "hits": [
+        "/js/bundles/coding-rules"
+    ]
+}

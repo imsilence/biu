@@ -1,0 +1,15 @@
+{
+    "name": "IIS_web_config_Accessible",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "apps=IIS",
+    "suffix": [
+        "/web.config"
+    ],
+    "hits": [
+        "<system.webServer>"
+    ]
+}

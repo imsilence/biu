@@ -1,0 +1,15 @@
+{
+    "name": "Flask_Debug_Enabled",
+    "method": "GET",
+    "port": [
+        80,
+        5000
+    ],
+    "dork": "apps=Flask",
+    "suffix": [
+        "/biubiu"
+    ],
+    "hits": [
+        "werkzeug.exceptions.NotFound"
+    ]
+}

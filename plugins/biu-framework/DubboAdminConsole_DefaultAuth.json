@@ -1,0 +1,24 @@
+{
+    "name": "DubboAdminConsole_DefaultAuth",
+    "method": "AUTH",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "headers.WWW-Authenticate=dubbo",
+    "suffix": [
+        "/sysinfo/envs"
+    ],
+    "data": [
+        {
+            "user": "root",
+            "pass": "root"
+        }
+    ],
+    "hits": [
+        "Dubbo Admin"
+    ],
+    "references": [
+        "http://dubbo.io/books/dubbo-admin-book/install/admin-console.html"
+    ]
+}

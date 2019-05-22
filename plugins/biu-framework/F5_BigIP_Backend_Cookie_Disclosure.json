@@ -1,0 +1,19 @@
+{
+    "name": "F5_BigIP_Backend_Cookie_Disclosure",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "headers=BIGipServer",
+    "suffix": [
+        "/"
+    ],
+    "hit_where": "headers.Set-Cookie",
+    "hits": [
+        "BIGipServer"
+    ],
+    "references": [
+        "https://support.f5.com/csp/article/K7784?sr=14607726"
+    ]
+}

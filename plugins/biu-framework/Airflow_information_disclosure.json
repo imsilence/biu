@@ -1,0 +1,14 @@
+{
+    "name": "Airflow_Information_Disclosure",
+    "method": "GET",
+    "port": [
+        8080
+    ],
+    "dork": "title=Airflow - DAGs",
+    "suffix": [
+        "/admin/"
+    ],
+    "hits": [
+        "Airflow - DAGs"
+    ]
+}

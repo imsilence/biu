@@ -1,0 +1,21 @@
+{
+    "name": "Shipyard_DefaultAuth",
+    "method": "POST",
+    "port": [
+        80
+    ],
+    "dork": "title=shipyard",
+    "suffix": [
+        "/auth/login"
+    ],
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "data": {
+        "username": "admin",
+        "password": "shipyard"
+    },
+    "hits": [
+        "auth_token"
+    ]
+}

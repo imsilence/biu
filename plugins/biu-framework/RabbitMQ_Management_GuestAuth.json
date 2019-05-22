@@ -1,0 +1,21 @@
+{
+    "name": "RabbitMQ_Management_GuestAuth",
+    "method": "AUTH",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "title=RabbitMQ Management",
+    "suffix": [
+        "/api/whoami"
+    ],
+    "data": [
+        {
+            "user": "guest",
+            "pass": "guest"
+        }
+    ],
+    "hits": [
+        "\"tags\":\"administrator\""
+    ]
+}

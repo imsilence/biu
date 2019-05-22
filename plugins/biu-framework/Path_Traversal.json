@@ -1,0 +1,19 @@
+{
+    "name": "Path_Traversal",
+    "method": "GET",
+    "port": [
+        80,
+        3000
+    ],
+    "dork": "url=http",
+    "suffix": [
+        "/../../../../../../../../../../../../../../../../../etc/networks"
+    ],
+    "hits": [
+        "loopback",
+        "link-local"
+    ],
+    "references": [
+        "https://www.owasp.org/index.php/Path_Traversal"
+    ]
+}

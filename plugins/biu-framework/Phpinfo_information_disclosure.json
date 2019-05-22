@@ -1,0 +1,23 @@
+{
+    "name": "Phpinfo_Information_Disclosure",
+    "method": "GET",
+    "port": [
+        80,
+        8080
+    ],
+    "dork": "apps=PHP",
+    "suffix": [
+        "/phpinfo",
+        "/phpinfo.php",
+        "/info",
+        "/Test/test",
+        "/Test/info",
+        "/test",
+        "/test/info",
+        "/test/phpinfo"
+    ],
+    "hits": [
+        "phpinfo()",
+        "PHP Variables"
+    ]
+}

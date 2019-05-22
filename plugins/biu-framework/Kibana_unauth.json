@@ -1,0 +1,16 @@
+{
+    "name": "Kibana_unauth",
+    "method": "GET",
+    "port": [
+        80,
+        5601
+    ],
+    "dork": "apps=Kibana",
+    "suffix": [
+        "/status"
+    ],
+    "hits": [
+        "Kibana",
+        "kibanaWelcomeView"
+    ]
+}
