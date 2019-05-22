@@ -36,6 +36,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		os.MkdirAll(filepath.Join(config.HOME, "logs"), os.ModePerm)
+		os.MkdirAll(filepath.Join(config.HOME, "reports"), os.ModePerm)
 
 		file, err := os.Create(filepath.Join(config.HOME, "logs", "biu.log"))
 		if err != nil {
