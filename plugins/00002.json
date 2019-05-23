@@ -1,7 +1,7 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00002",
+    "name" : "Ambari_DefaultAuth",
+    "desc" : "title=Ambari",
     "author" : "",
     "version" : "1.0",
     "references" : [],
@@ -10,10 +10,12 @@
         "method" : "GET",
         "ports" : [8080],
         "suffixes" : [
-            "/admin/"
+            "/api/v1/users/admin?fields=*,privileges/PrivilegeInfo/cluster_name,privileges/PrivilegeInfo/permission_name"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+            "Authorization" : "Basic YWRtaW46YWRtaW4="
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +29,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" : "user_name\" : \"admin"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

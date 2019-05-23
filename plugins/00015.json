@@ -1,19 +1,23 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00015",
+    "name" : "BackUpFile",
+    "desc" : "url=http",
     "author" : "",
     "version" : "1.0",
-    "references" : [],
+    "references" : [
+        "https://www.exploit-db.com/exploits/12721/"
+    ],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80, 443, 8080, 8443],
         "suffixes" : [
-            "/admin/"
+            "/api.php~",
+            "/include/config.php~"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +31,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" : "<?php"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

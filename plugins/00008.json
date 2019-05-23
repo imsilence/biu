@@ -1,19 +1,20 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00008",
+    "name" : "Apache_Subversion_Module_Metadata_Accessible",
+    "desc" : "url=http",
     "author" : "",
     "version" : "1.0",
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80, 443],
         "suffixes" : [
-            "/admin/"
+            "/.svn/entries"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +28,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" : "\nfile\n\n\n\n\n"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

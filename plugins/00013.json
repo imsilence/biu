@@ -1,19 +1,20 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00013",
+    "name" : "Axis2_Information_Disclosure",
+    "desc" : "apps=Java",
     "author" : "",
     "version" : "1.0",
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80, 443, 8080, 8443],
         "suffixes" : [
-            "/admin/"
+            "/axis2/axis2-web/HappyAxis.jsp"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +28,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" :"Axis2 Happiness Page"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

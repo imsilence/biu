@@ -1,19 +1,21 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00011",
+    "name" : "Atlassian_Confluence_Local_File_Inclusion",
+    "desc" : "apps=Atlassian Confluence",
     "author" : "",
     "version" : "1.0",
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80, 443, 8080, 8443],
         "suffixes" : [
-            "/admin/"
+            "/spaces/viewdefaultdecorator.action?decoratorName=/",
+            "/confluence/spaces/viewdefaultdecorator.action?decoratorName=/"
         ],
         "user-agent" : "",
-        "headers" : {},
+        "headers" : {
+        },
         "auth" : {
             "username" : "",
             "password" : ""
@@ -27,15 +29,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" :"log4j.properties"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }

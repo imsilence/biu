@@ -2,11 +2,11 @@
     "id" : "00001",
     "name" : "tpl",
     "desc" : "",
-    "author" : "",
-    "version" : "",
+    "author" : "kk",
+    "version" : "1.0",
     "references" : [],
     "request" : {
-        "protocols" : ["HTTP", "HTTPS"],
+        "protocols" : ["http", "https"],
         "method" : "",
         "ports" : [],
         "suffixes" : [],
@@ -30,7 +30,7 @@
         "status" : [],
         "texts" : [
             {
-                "type" : "regexp/contains/iregexp/icontains",
+                "type" : "regexp/contains/icontains",
                 "value" : ""
             }
         ],

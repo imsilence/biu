@@ -1,22 +1,22 @@
 {
-    "id" : "00001",
-    "name" : "Airflow_Information_Disclosure",
-    "desc" : "title=Airflow - DAGs",
+    "id" : "00004",
+    "name" : "Apache_ActiveMQ_DefaultAuth",
+    "desc" : "title=Apache ActiveMQ",
     "author" : "",
     "version" : "1.0",
     "references" : [],
     "request" : {
         "protocols" : ["http", "https"],
         "method" : "GET",
-        "ports" : [8080],
+        "ports" : [80],
         "suffixes" : [
             "/admin/"
         ],
         "user-agent" : "",
         "headers" : {},
         "auth" : {
-            "username" : "",
-            "password" : ""
+            "username" : "admin",
+            "password" : "admin"
         },
         "queryset": [],
         "bodys" : [],
@@ -27,15 +27,9 @@
         "texts" : [
             {
                 "type" : "icontains",
-                "value" : "Airflow - DAGs"
+                "value" : "/admin/queues.jsp"
             }
         ],
-        "headers" : [
-            {
-                "key" : "",
-                "type" : "",
-                "value" : ""
-            }
-        ]
+        "headers" : []
     }
 }
