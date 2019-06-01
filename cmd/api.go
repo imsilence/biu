@@ -4,6 +4,7 @@ import (
 	"biu/config"
 	"biu/plugin"
 	"bufio"
+	"fmt"
 	"html/template"
 	"net/http"
 	"os"
@@ -46,6 +47,8 @@ var apiCmd = &cobra.Command{
 		manager := plugin.Manager{Timeout: timeout}
 
 		manager.Load()
+
+		fmt.Printf("Total Poc: %5d\n", len(manager.POCs))
 
 		r := gin.Default()
 
