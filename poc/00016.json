@@ -48,8 +48,13 @@
         "jsons" : []
     },
     "matcher" : {
-        "status" : [200],
-        "texts" : [],
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "Hi"
+            }
+        ],
         "headers" : []
     }
 }

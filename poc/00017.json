@@ -1,0 +1,42 @@
+{
+    "id" : "00017",
+    "name" : "CompressedBackupFile_undelete",
+    "desc" : "url=http",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [
+        "https://www.exploit-db.com/exploits/12721/"
+    ],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "HEAD",
+        "ports" : [80, 443, 8080, 8443],
+        "suffixes" : [
+            "/web.zip",
+            "/www.zip",
+            "/backup.zip",
+            "/old.zip",
+            "/bak.zip",
+            "/code.zip"
+        ],
+        "user-agent" : "",
+        "headers" : {
+        },
+        "auths" : [],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [],
+        "headers" : [
+            {
+                "key" : "Content-Type",
+                "value" : "application/x-zip-compressed",
+                "type" : "icontains"
+
+            }
+        ]
+    }
+}
