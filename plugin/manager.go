@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net"
+	"net/url"
 	"path/filepath"
 	"strings"
 	"time"
@@ -104,8 +105,21 @@ type Job struct {
 func (manager *Manager) ParseJobs(plugin *Plugin, target Target, jobs chan<- Job) {
 	switch target.Type {
 	case URL:
-		for _, suffix := range plugin.POC.Request.Suffixes {
-			jobs <- Job{&Target{URL, fmt.Sprintf("%s/%s", strings.TrimRight(target.Raw, "/"), strings.TrimLeft(suffix, "/"))}, plugin}
+		if u, err := url.Parse(target.Raw); err == nil {
+			if strings.TrimRight(u.Path, "/") != "" {
+				jobs <- Job{&Target{URL, target.Raw}, plugin}
+				for _, suffix := range plugin.POC.Request.Suffixes {
+					if strings.TrimLeft(suffix, "/") == "" {
+						continue
+					}
+					jobs <- Job{&Target{URL, fmt.Sprintf("%s/%s", strings.TrimRight(target.Raw, "/"), strings.TrimLeft(suffix, "/"))}, plugin}
+				}
+			}
+
+			for _, suffix := range plugin.POC.Request.Suffixes {
+				u.Path = suffix
+				jobs <- Job{&Target{URL, u.String()}, plugin}
+			}
 		}
 	case IPPORT:
 		for _, protocol := range plugin.POC.Request.Protocols {
