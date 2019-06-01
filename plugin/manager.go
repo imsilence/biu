@@ -16,12 +16,15 @@ import (
 )
 
 type Manager struct {
-	Plugins []*Plugin
+	POCs    []*POC
 	Timeout time.Duration
 }
 
 func (manager *Manager) Load() error {
-	matches, err := filepath.Glob(filepath.Join(config.PLUGIN_DIR, config.PLUGIN_NAME_PATTERN))
+	logrus.WithFields(logrus.Fields{
+		"target": config.POC_DIR,
+	}).Debug("load poc")
+	matches, err := filepath.Glob(filepath.Join(config.POC_DIR, config.POC_NAME_PATTERN))
 	if err != nil {
 		return err
 	}
@@ -30,36 +33,36 @@ func (manager *Manager) Load() error {
 		if err != nil {
 			continue
 		}
-		plugin := new(Plugin)
-		err = json.Unmarshal(bytes, plugin)
+		poc := new(POC)
+		err = json.Unmarshal(bytes, poc)
 		if err != nil {
 			logrus.WithFields(logrus.Fields{
 				"json":  path,
 				"error": err,
-			}).Error("error load plugin")
+			}).Error("error load poc")
 		} else {
-			plugin.Timeout = manager.Timeout
+			poc.Timeout = manager.Timeout
 			logrus.WithFields(logrus.Fields{
-				"json":   path,
-				"plugin": *plugin,
-			}).Debug("success load plugin")
-			manager.Plugins = append(manager.Plugins, plugin)
+				"json": path,
+				"poc":  *poc,
+			}).Debug("success load poc")
+			manager.POCs = append(manager.POCs, poc)
 		}
 	}
 	return nil
 }
 
-func (manager Manager) Search(query string) []*Plugin {
-	plugins := make([]*Plugin, 0)
+func (manager Manager) Search(query string) []*POC {
+	pocs := make([]*POC, 0)
 	qs := strings.Split(query, ",")
-	for _, plugin := range manager.Plugins {
+	for _, poc := range manager.POCs {
 		for _, q := range qs {
-			if q == "*" || q == "all" || strings.Contains(q, strings.ToLower(plugin.Name)) || strings.Contains(q, strings.ToLower(plugin.Desc)) {
-				plugins = append(plugins, plugin)
+			if q == "*" || q == "all" || strings.Contains(q, strings.ToLower(poc.Name)) || strings.Contains(q, strings.ToLower(poc.Desc)) {
+				pocs = append(pocs, poc)
 			}
 		}
 	}
-	return plugins
+	return pocs
 }
 
 func (manager Manager) ParseTargets(target string, cidr string) []Target {
@@ -101,38 +104,41 @@ type Job struct {
 func (manager *Manager) ParseJobs(plugin *Plugin, target Target, jobs chan<- Job) {
 	switch target.Type {
 	case URL:
-		jobs <- Job{&target, plugin}
+		for _, suffix := range plugin.POC.Request.Suffixes {
+			jobs <- Job{&Target{URL, fmt.Sprintf("%s/%s", strings.TrimRight(target.Raw, "/"), strings.TrimLeft(suffix, "/"))}, plugin}
+		}
 	case IPPORT:
-		for _, protocol := range plugin.Request.Protocols {
-			for _, suffix := range plugin.Request.Suffixes {
-				manager.ParseJobs(plugin, Target{URL, fmt.Sprintf("%s://%s/%s", protocol, target.Raw, strings.TrimLeft(suffix, "/"))}, jobs)
-			}
+		for _, protocol := range plugin.POC.Request.Protocols {
+			manager.ParseJobs(plugin, Target{URL, fmt.Sprintf("%s://%s", protocol, target.Raw)}, jobs)
 		}
 	case IP:
-		for _, port := range plugin.Request.Ports {
+		for _, port := range plugin.POC.Request.Ports {
 			manager.ParseJobs(plugin, Target{IPPORT, fmt.Sprintf("%s:%d", target.Raw, port)}, jobs)
 		}
 	}
 
 }
 
-func (manager Manager) Execute(targets []Target, plugins []*Plugin, worker int) <-chan interface{} {
+func (manager Manager) Execute(targets []Target, pocs []*POC, worker int) <-chan interface{} {
 	ppool := pool.New(worker)
 	ppool.Start()
+	jobs := make(chan Job)
 	go func() {
-		jobs := make(chan Job)
-		go func() {
+		for _, poc := range pocs {
+			plugins := poc.BuildPlugins()
 			for _, target := range targets {
 				for _, plugin := range plugins {
 					manager.ParseJobs(plugin, target, jobs)
 				}
 			}
-			close(jobs)
-		}()
+		}
+		close(jobs)
+	}()
+	go func() {
 		for job := range jobs {
 			logrus.WithFields(logrus.Fields{
 				"target": job.Target,
-				"plugin": job.Plugin.Name,
+				"plugin": job.Plugin.POC.Name,
 			}).Debug("add task to pool")
 			ppool.Add(func(job Job) func() interface{} {
 				return func() interface{} {

@@ -7,20 +7,19 @@ import (
 	"github.com/kardianos/osext"
 )
 
-var PLUGIN_NAME_PATTERN string = "*.json"
+var POC_NAME_PATTERN string = "*.json"
 
 var HOME string
 var CWD string
-var PLUGIN_DIR string
-var PLUGIN_PATH_PATTERN string
+var POC_DIR string
 
 func init() {
 	HOME, _ = osext.ExecutableFolder()
 	CWD, _ := os.Getwd()
 	for _, dir := range []string{HOME, CWD} {
-		path := filepath.Join(dir, "plugins")
+		path := filepath.Join(dir, "poc")
 		if info, err := os.Stat(path); err == nil && info.IsDir() {
-			PLUGIN_DIR = path
+			POC_DIR = path
 			break
 		}
 	}

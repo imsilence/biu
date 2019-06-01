@@ -1,0 +1,51 @@
+{
+    "id" : "00001",
+    "name" : "tpl",
+    "desc" : "",
+    "author" : "kk",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "",
+        "ports" : [],
+        "suffixes" : [],
+        "user-agent" : "",
+        "header" : {
+
+        },
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [
+            [
+                {"key" : "", "value" : ""}
+            ]
+        ],
+        "bodys" : [
+            [
+                {"key" : "", "value" : ""}
+            ]
+        ],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "regexp/contains/icontains",
+                "value" : ""
+            }
+        ],
+        "headers" : [
+            {
+                "key" : "",
+                "type" : "",
+                "value" : ""
+            }
+        ]
+    }
+}

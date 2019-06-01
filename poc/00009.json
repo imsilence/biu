@@ -1,0 +1,38 @@
+{
+    "id" : "00009",
+    "name" : "Apache_Tomcat_examples_undelete",
+    "desc" : "apps=Apache Tomcat",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80, 8080, 8888],
+        "suffixes" : [
+            "/examples/servlets/index.html"
+        ],
+        "user-agent" : "",
+        "header" : {
+        },
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "Look at the source code for the example"
+            }
+        ],
+        "headers" : []
+    }
+}

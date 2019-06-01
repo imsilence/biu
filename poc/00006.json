@@ -1,0 +1,38 @@
+{
+    "id" : "00006",
+    "name" : "Apache_Solr_unauth",
+    "desc" : "title=Solr Admin",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80],
+        "suffixes" : [
+            "/solr/admin/info/system?wt=json",
+            "/admin/info/system?wt=json"
+        ],
+        "user-agent" : "",
+        "header" : {},
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "solr-spec-version"
+            }
+        ],
+        "headers" : []
+    }
+}

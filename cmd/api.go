@@ -23,16 +23,18 @@ var apiCmd = &cobra.Command{
 	Short: "Biu Framwork web api server",
 	Long:  `Biu Framwork web api server`,
 	RunE: func(cmd *cobra.Command, args []string) error {
+		logDir := filepath.Join(config.HOME, "logs")
 		if verbose {
+			logDir = filepath.Join(config.CWD, "logs")
 			logrus.SetLevel(logrus.DebugLevel)
 			gin.SetMode(gin.DebugMode)
 		} else {
 			gin.SetMode(gin.ReleaseMode)
 		}
 
-		os.MkdirAll(filepath.Join(config.HOME, "logs"), os.ModePerm)
+		os.MkdirAll(logDir, os.ModePerm)
 
-		file, err := os.Create(filepath.Join(config.HOME, "logs", "api.log"))
+		file, err := os.Create(filepath.Join(logDir, "api.log"))
 		if err != nil {
 			return err
 		}
@@ -63,33 +65,33 @@ var apiCmd = &cobra.Command{
 
 		r.POST("/task/", func(c *gin.Context) {
 
-			pluginName := c.DefaultPostForm("p", "*")
+			pocName := c.DefaultPostForm("p", "*")
 			host := c.DefaultPostForm("H", "")
 			cidr := c.DefaultPostForm("c", "")
 
 			logrus.WithFields(logrus.Fields{
-				"plugin": pluginName,
-				"host":   host,
-				"cidr":   cidr,
+				"poc":  pocName,
+				"host": host,
+				"cidr": cidr,
 			}).Debug("create task")
 
-			plugins := manager.Search(pluginName)
+			pocs := manager.Search(pocName)
 			targets := manager.ParseTargets(host, cidr)
 
 			logrus.WithFields(logrus.Fields{
-				"plugins": plugins,
+				"pocs":    pocs,
 				"targets": targets,
 			}).Debug("execute task")
 
-			results := manager.Execute(targets, plugins, worker)
+			results := manager.Execute(targets, pocs, worker)
 			rs := make([]map[string]string, 0)
 			for result := range results {
 				if r, ok := result.(plugin.Result); ok && !r.Safety {
 					rs = append(rs, map[string]string{
 						"url":   r.Target.Raw,
-						"pid":   r.Plugin.Id,
-						"pname": r.Plugin.Name,
-						"pdesc": r.Plugin.Desc,
+						"pid":   r.Plugin.POC.ID,
+						"pname": r.Plugin.POC.Name,
+						"pdesc": r.Plugin.POC.Desc,
 					})
 				}
 			}

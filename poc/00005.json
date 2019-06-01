@@ -1,0 +1,44 @@
+{
+    "id" : "00005",
+    "name" : "Apache_Ranger_DefaultAuth",
+    "desc" : "title=Ranger - Sign In",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [
+        "https://cwiki.apache.org/confluence/display/RANGER/Ranger+Installation+Guide"
+    ],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "POST",
+        "ports" : [80, 6080],
+        "suffixes" : [
+            "/j_spring_security_check"
+        ],
+        "user-agent" : "",
+        "header" : {},
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [
+            [
+                {"key" : "j_username", "value" : "admin"},
+                {"key" : "j_password", "value" : "admin"}
+            ]
+        ],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "Login Successful"
+            }
+        ],
+        "headers" : []
+    }
+}

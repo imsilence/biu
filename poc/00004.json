@@ -1,0 +1,37 @@
+{
+    "id" : "00004",
+    "name" : "Apache_ActiveMQ_DefaultAuth",
+    "desc" : "title=Apache ActiveMQ",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80],
+        "suffixes" : [
+            "/admin/"
+        ],
+        "user-agent" : "",
+        "header" : {},
+        "auths" : [
+            {
+                "username" : "admin",
+                "password" : "admin"
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : null
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" : "/admin/queues.jsp"
+            }
+        ],
+        "headers" : []
+    }
+}

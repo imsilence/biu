@@ -1,0 +1,42 @@
+{
+    "id" : "00010",
+    "name" : "ASP.NET_Error",
+    "desc" : "apps=IIS",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80],
+        "suffixes" : [
+            "/biubiubiu"
+        ],
+        "user-agent" : "",
+        "header" : {
+        },
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" :"customErrors mode=\"Off"
+            },
+            {
+                "type" : "icontains",
+                "value" :"Web.Config"
+            }
+        ],
+        "headers" : []
+    }
+}

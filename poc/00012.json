@@ -1,0 +1,39 @@
+{
+    "id" : "00012",
+    "name" : "Atlassian_JIRA_Project_Management_Misconfiguration",
+    "desc" : "apps=Atlassian Jira",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80, 443, 8080, 8443],
+        "suffixes" : [
+            "/",
+            "/projects"
+        ],
+        "user-agent" : "",
+        "header" : {
+        },
+        "auths" : [
+            {
+                "username" : "",
+                "password" : ""
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [],
+        "texts" : [
+            {
+                "type" : "icontains",
+                "value" :"browse_link"
+            }
+        ],
+        "headers" : []
+    }
+}
