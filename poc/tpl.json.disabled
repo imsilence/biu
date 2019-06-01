@@ -1,50 +1,48 @@
 {
-    "id" : "00001",
-    "name" : "tpl",
-    "desc" : "",
-    "author" : "kk",
-    "version" : "1.0",
-    "references" : [],
-    "request" : {
-        "protocols" : ["http", "https"],
-        "method" : "",
-        "ports" : [],
-        "suffixes" : [],
-        "user-agent" : "",
-        "header" : {
-
-        },
-        "auths" : [
+    "id" : "00001", #ID
+    "name" : "tpl", #名称
+    "desc" : "", # 描述
+    "author" : "kk", #作者
+    "version" : "1.0", #版本
+    "references" : [], #引用说明
+    "request" : {  #请求信息
+        "protocols" : ["http", "https"], #发起请求方法
+        "method" : "", #发起请求方式
+        "ports" : [], #发起请求端口
+        "suffixes" : [], #URL后缀
+        "user-agent" : "", #UserAgent
+        "header" : {}, #HTTP request header
+        "auths" : [ # http basic 认证用户名密码, 可配置多个
             {
                 "username" : "",
                 "password" : ""
             }
         ],
-        "querysets": [
+        "querysets": [ # http 请求url参数，可配置多个
             [
                 {"key" : "", "value" : ""}
             ]
         ],
-        "bodys" : [
+        "bodys" : [ # http 请求body x-www-form-urlencode参数，可配置多个
             [
                 {"key" : "", "value" : ""}
             ]
         ],
-        "jsons" : []
+        "jsons" : [] # http 请求body json格式参数，可配置多个
     },
-    "matcher" : {
-        "status" : [],
-        "texts" : [
+    "matcher" : { #结果匹配
+        "status" : [], #状态码匹配
+        "texts" : [ # 响应信息匹配
             {
-                "type" : "regexp/contains/icontains",
-                "value" : ""
+                "type" : "regexp/contains/icontains", #支持正则，包含，不区分大小写包含
+                "value" : "" #匹配值
             }
         ],
-        "headers" : [
+        "headers" : [ #响应头匹配
             {
-                "key" : "",
-                "type" : "",
-                "value" : ""
+                "key" : "", # header key
+                "type" : "", #支持正则，包含，不区分大小写包含
+                "value" : "" #匹配值
             }
         ]
     }
