@@ -1,0 +1,55 @@
+{
+    "id" : "00016",
+    "name" : "BasicAuth_weakpwd",
+    "desc" : "url=http",
+    "author" : "",
+    "version" : "1.0",
+    "references" : [
+        "https://www.exploit-db.com/exploits/12721/"
+    ],
+    "request" : {
+        "protocols" : ["http", "https"],
+        "method" : "GET",
+        "ports" : [80, 443, 8080, 8443],
+        "suffixes" : [
+            "/"
+        ],
+        "user-agent" : "",
+        "headers" : {
+        },
+        "auths" : [
+            {
+                "username" : "admin",
+                "password" : "admin"
+            },
+            {
+                "username" : "admin",
+                "password" : "12345"
+            },
+            {
+                "username" : "admin",
+                "password" : "password"
+            },
+            {
+                "username" : "root",
+                "password" : "root"
+            },
+            {
+                "username" : "root",
+                "password" : "12345"
+            },
+            {
+                "username" : "root",
+                "password" : "password"
+            }
+        ],
+        "querysets": [],
+        "bodys" : [],
+        "jsons" : []
+    },
+    "matcher" : {
+        "status" : [200],
+        "texts" : [],
+        "headers" : []
+    }
+}

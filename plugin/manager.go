@@ -57,7 +57,7 @@ func (manager Manager) Search(query string) []*POC {
 	qs := strings.Split(query, ",")
 	for _, poc := range manager.POCs {
 		for _, q := range qs {
-			if q == "*" || q == "all" || strings.Contains(q, strings.ToLower(poc.Name)) || strings.Contains(q, strings.ToLower(poc.Desc)) {
+			if q == "*" || q == "all" || strings.Contains(strings.ToLower(poc.Name), q) || strings.Contains(strings.ToLower(poc.Desc), q) {
 				pocs = append(pocs, poc)
 			}
 		}

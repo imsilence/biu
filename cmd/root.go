@@ -96,7 +96,7 @@ var rootCmd = &cobra.Command{
 			}).Debug("check targets")
 
 			results := manager.Execute(targets, pocs, worker)
-			tpl := "| %-45s | %60s | %100s |"
+			tpl := "| %-45s | %-60s | %-100s |"
 			fmt.Println(strings.Repeat("=", len(fmt.Sprintf(tpl, "", "", ""))))
 			fmt.Printf("| %-[1]*[2]s |\n", len(fmt.Sprintf(tpl, "", "", ""))-4, "Results:")
 			fmt.Println(strings.Repeat("-", len(fmt.Sprintf(tpl, "", "", ""))))

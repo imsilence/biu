@@ -38,7 +38,7 @@ func (r Request) String() string {
 	}
 
 	if r.Auth.Username != "" && r.Auth.Password != "" {
-		builder.WriteString(fmt.Sprintf(", Auth: %q:%s", r.Auth.Username, r.Auth.Password))
+		builder.WriteString(fmt.Sprintf(", Auth: %q:%q", r.Auth.Username, r.Auth.Password))
 	}
 
 	if len(r.Header) != 0 {
